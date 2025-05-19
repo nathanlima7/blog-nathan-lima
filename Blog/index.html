@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog Nathan Lima</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="recursos/style.css" />
+</head>
+<body class="bg-dark text-light">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-black px-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">NathanLima</a>
+      <!-- Botão modo claro/escuro -->
+      <button id="toggle-theme" class="btn btn-outline-light ms-2 d-md-none" title="Alternar modo claro/escuro">
+        <span id="theme-icon" class="bi bi-sun"></span>
+      </button>
+      <!-- Botão offcanvas (mobile) -->
+      <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Offcanvas Menu (Mobile) -->
+  <div class="offcanvas offcanvas-start bg-dark text-light" tabindex="-1" id="offcanvasMenu">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Títulos</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item bg-dark text-light border-secondary">
+          <a href="#" onclick="carregarArtigo('limites')" data-bs-dismiss="offcanvas" class="text-decoration-none text-light">Os limites da autoridade científica</a>
+        </li>
+        <li class="list-group-item bg-dark text-light border-secondary">
+          <a href="#" onclick="carregarArtigo('livre')" data-bs-dismiss="offcanvas" class="text-decoration-none text-light">Somos realmente livres?</a>
+        </li>
+        <li class="list-group-item bg-dark text-light border-secondary">
+          <a href="#" onclick="carregarArtigo('casa')" data-bs-dismiss="offcanvas" class="text-decoration-none text-light">O verdadeiro sentido de 'casa'</a>
+        </li>
+        <li class="list-group-item bg-dark text-light border-secondary">
+          <a href="#" onclick="carregarArtigo('singularidade')" data-bs-dismiss="offcanvas" class="text-decoration-none text-light">A singularidade do indivíduo</a>
+        </li>
+        <li class="list-group-item bg-dark text-light border-secondary">
+          <a href="#" onclick="carregarArtigo('design')" data-bs-dismiss="offcanvas" class="text-decoration-none text-light">Design inteligente</a>
+        </li>
+        <li class="list-group-item bg-dark text-light border-secondary">
+          <a href="#" onclick="carregarArtigo('sustentabilidade')" data-bs-dismiss="offcanvas" class="text-decoration-none text-light">A dor, o sacrifício e a fé</a>
+        </li>
+        <li class="list-group-item bg-dark text-light border-secondary">
+          <a href="#" onclick="carregarArtigo('lagrimas')" data-bs-dismiss="offcanvas" class="text-decoration-none text-light">O que vem depois das lágrimas</a>
+        </li>
+        <li class="list-group-item bg-dark text-light border-secondary">
+          <a href="#" onclick="carregarArtigo('ciclos')" data-bs-dismiss="offcanvas" class="text-decoration-none text-light">Um ensaio sobre os ciclos da vida</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Conteúdo da página -->
+  <div class="container-fluid">
+    <div class="row mt-4">
+      
+      <!-- Menu lateral (somente desktop) -->
+      <aside class="col-md-3 d-none d-md-block mb-4">
+        <h4 class="mb-3">Títulos</h4>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-dark text-light border-secondary">
+            <a href="#" onclick="carregarArtigo('limites')" class="text-decoration-none text-light">Os limites da autoridade científica</a>
+          </li>
+          <li class="list-group-item bg-dark text-light border-secondary">
+            <a href="#" onclick="carregarArtigo('livre')" class="text-decoration-none text-light">Somos realmente livres?</a>
+          </li>
+          <li class="list-group-item bg-dark text-light border-secondary">
+            <a href="#" onclick="carregarArtigo('casa')" class="text-decoration-none text-light">O verdadeiro sentido de 'casa'</a>
+          </li>
+          <li class="list-group-item bg-dark text-light border-secondary">
+            <a href="#" onclick="carregarArtigo('singularidade')" class="text-decoration-none text-light">A singularidade do indivíduo</a>
+          </li>
+          <li class="list-group-item bg-dark text-light border-secondary">
+            <a href="#" onclick="carregarArtigo('design')" class="text-decoration-none text-light">Design inteligente</a>
+          </li>
+          <li class="list-group-item bg-dark text-light border-secondary">
+            <a href="#" onclick="carregarArtigo('sustentabilidade')" class="text-decoration-none text-light">A dor, o sacrifício e a fé</a>
+          </li>
+          <li class="list-group-item bg-dark text-light border-secondary">
+            <a href="#" onclick="carregarArtigo('lagrimas')" class="text-decoration-none text-light">O que vem depois das lágrimas</a>
+          </li>
+          <li class="list-group-item bg-dark text-light border-secondary">
+            <a href="#" onclick="carregarArtigo('ciclos')" class="text-decoration-none text-light">Um ensaio sobre os ciclos da vida</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Área de conteúdo principal -->
+      <main class="col-md-9" id="conteudo-artigo">
+        <h2>Bem-vindo(a) ao meu Blog!</h2>
+        <p>Aqui você encontra<strong> reflexões</strong> sobre assuntos diversos.</p>
+        <p>Selecione um título no menu lateral (ou toque no botão no canto superior, se estiver no celular).</p>
+      </main>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"> -->
+
+  <!-- Script de carregamento de artigos -->
+  <script>
+    function setTheme(isDark) {
+      const body = document.body;
+      if (isDark) {
+        body.classList.add('bg-dark', 'text-light');
+        body.classList.remove('bg-light', 'text-dark');
+        document.getElementById('theme-icon').className = 'bi bi-sun';
+      } else {
+        body.classList.add('bg-light', 'text-dark');
+        body.classList.remove('bg-dark', 'text-light');
+        document.getElementById('theme-icon').className = 'bi bi-moon';
+      }
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+
+    // Detecta preferência inicial
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(savedTheme === 'dark' || (!savedTheme && prefersDark));
+    })();
+
+    document.getElementById('toggle-theme').addEventListener('click', function() {
+      const isDark = document.body.classList.contains('bg-dark');
+      setTheme(!isDark);
+    });
+
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+    document.onselectstart = function() { return false; };
+    document.addEventListener('keydown', function(e) {
+    // Bloqueia Print Screen (código 44 em alguns navegadores)
+    if (e.key === 'PrintScreen' || e.keyCode === 44) {
+        e.preventDefault();
+        alert('Capturas de tela não são permitidas!');
+    }
+    });
+    function carregarArtigo(artigoId) {
+    const artigos = {
+    limites:`
+    <div class="artigo-conteudo">
+      <h2>Pode a ciência encerrar um debate sobre o livre-arbítrio? Um ensaio sobre os limites da autoridade científica</h2>
+      <p class="text-secondary">Publicado em 17/05/2025 por Nathan Lima</p>
+      <img src="imagens/limites.png" alt="Limites da ciência" class="artigo-imagem"/>
+      <p>Ainda sobre o neurocientista Robert Sapolsky, me chamou a atenção uma afirmação que merece mais uma reflexão. Segundo ele, o ônus da prova sobre a existência do livre-arbítrio recai sobre aqueles que acreditam nele. Para Sapolsky, não se pode sequer falar em liberdade de escolha sem antes apresentar evidências biológicas que a sustentem. Trata-se de um ponto de vista ousado — e, ao meu ver, limitado.</p>
+      <p>Sapolsky é uma autoridade reconhecida na biologia do comportamento. Sua obra traz contribuições valiosas para a compreensão de como o cérebro e o ambiente moldam decisões humanas. No entanto, cabe perguntar: será que ele tem autoridade para redefinir o conceito de liberdade a partir de uma única perspectiva, a científica-biológica?</p>
+      <p>A liberdade é um conceito multidimensional. Ela se expressa na filosofia, na teologia, no direito, na ética e na experiência cotidiana. Reduzi-la a impulsos elétricos, redes neurais ou desequilíbrios hormonais é um reducionismo perigoso, pois exclui outras formas legítimas de conhecimento.</p>
+      <p>Quando Sapolsky exige que se prove cientificamente o livre-arbítrio antes de considerá-lo real, ele comete um erro metodológico: a ciência empírica, por natureza, não está equipada para lidar com aspectos subjetivos e existenciais da vida humana. Ela pode medir impulsos cerebrais, mas não pode medir a consciência do bem e do mal, a experiência de arrependimento, ou o peso moral de uma decisão. O próprio amor, a culpa ou o senso de justiça escapam da régua e da lupa científica — e nem por isso os negamos.</p>
+      <p>Essa postura revela algo maior: um tipo de <strong>cientificismo</strong> — a crença de que somente a ciência pode produzir conhecimento válido. Mas isso é, por si só, uma crença, e não uma conclusão científica. Como advertiu o filósofo Karl Popper, a ciência que se fecha à filosofia se transforma em dogma. Thomas Nagel, outro pensador influente, afirma que o ser humano não pode ser plenamente compreendido "de fora", como um objeto qualquer, pois há uma realidade “de dentro” — a consciência — que só pode ser vivida.</p>
+      <p>Ao dizer que não acredita no livre-arbítrio porque ninguém provou biologicamente sua existência, Sapolsky inverte a lógica: ele assume que o homem é um robô biológico até que se prove o contrário. Mas será que não é mais razoável partir daquilo que todos experimentamos diariamente — a liberdade de escolha — e então investigar os fatores que a limitam ou influenciam, sem negá-la de saída?</p>
+      <p>Do ponto de vista da fé cristã, como já expressei em outra reflexão, a liberdade é pressuposto para o relacionamento entre Deus e o ser humano. Desde o Éden, a narrativa bíblica pressupõe escolhas, consequências, responsabilidade e redenção. O bem e o mal são reais, e a resposta humana a eles também é.</p>
+      <p>Sapolsky pode nos ajudar a entender como tomamos decisões, mas não tem autoridade para dizer por que escolhemos — ou se essas escolhas são reais. Isso pertence a um campo que a ciência, sozinha, não pode sondar. A liberdade humana, não cabe em um tubo de ensaio.</p>
+
+    </div>
+    `,
+    livre: `
+    <div class="artigo-conteudo">
+        <h2>Somos realmente livres? Uma reflexão sobre o livre-arbítrio</h2>
+        <p class="text-secondary">Publicado em 25/04/2025 por Nathan Lima</p>
+        <img src="imagens/escolha.png" alt="Livre-arbítrio" class="artigo-imagem" />
+        <p>Recentemente, assisti a uma matéria da BBC News sobre o pensamento de Robert Sapolsky, neurocientista de Stanford, que defende a ideia de que o livre-arbítrio é uma ilusão. Para ele, todas as nossas decisões decorrem de uma cadeia de causas biológicas e ambientais, que nos empurram inevitavelmente para certas ações. Em outras palavras, não somos realmente livres — apenas reagimos ao que já está determinado pela nossa genética, experiências e contexto.</p>
+        <p>Ainda que eu reconheça a autoridade de Sapolsky no campo das neurociências, essa conclusão me parece incompleta. A concepção de que somos apenas marionetes das circunstâncias desconsidera uma dimensão essencial do ser humano: a responsabilidade moral. Segundo essa linha de pensamento, não haveria espaço para a liberdade real nem para a culpa ou o mérito, já que tudo o que fazemos seria apenas resultado de forças que fogem ao nosso controle.</p>
+        <p>A Bíblia, no entanto, apresenta outra realidade.</p>
+        <p>Ao longo de toda a Escritura, o ser humano é tratado como um ser moral, dotado de consciência e responsabilidade diante de suas escolhas. Desde o Éden, quando Deus coloca diante de Adão e Eva a possibilidade de obedecer ou desobedecer, percebemos que a liberdade é parte integrante da criação.</p>
+        <p>Textos como Deuteronômio 30:19 — “<i>Hoje invoco os céus e a terra como testemunhas contra vocês de que coloquei diante de vocês a vida e a morte, a bênção e a maldição. Escolham, pois, a vida</i>” — são exemplos claros de que Deus nos convida à escolha. Se não fôssemos livres, que sentido faria esse apelo?</p>
+        <p>O mesmo ocorre no Novo Testamento. Jesus frequentemente chama as pessoas ao arrependimento, à fé, à obediência. Ele diz: “<i>Eis que estou à porta e bato; se alguém ouvir a minha voz e abrir a porta, entrarei</i>” (Apocalipse 3:20). Esse convite pressupõe liberdade. A salvação, segundo o Evangelho, é oferecida a todos, mas aceita por quem responde ao chamado de Deus com o coração aberto.</p>
+        <p>Negar o livre-arbítrio levanta questões éticas profundas. Em sociedades onde a criminalidade é quase inexistente, ainda há leis, prisões e julgamentos. Isso porque se entende que as pessoas são responsáveis por suas ações. Mesmo quando alguém tem a oportunidade de fazer o bem ou o mal, como por exemplo, no caso onde alguém pode escolher usar uma faca para cortar pão ou ferir alguém, espera-se que sua consciência o guie à melhor decisão.</p>
+        <p>Claro, há situações em que a saúde mental compromete a liberdade, como no caso de pessoas com transtornos graves. Mas são exceções à regra. A Bíblia também reconhece nossa inclinação para o mal, como afirma o apóstolo Paulo em Romanos 7:18-21, ao falar sobre fazer o mal que não quer. Contudo, isso não elimina a responsabilidade, apenas revela o conflito interno que habita em nós, fruto da natureza pecaminosa herdada após a queda no Éden.</p>
+        <p>Embora a base deste texto seja a cosmovisão bíblica, vale lembrar que a filosofia também se debruçou sobre o tema da liberdade. Tomás de Aquino, por exemplo, afirmou que a vontade humana é livre porque está unida à razão. Segundo ele, escolhemos o bem que a razão reconhece como tal. Não somos completamente livres de influências, mas somos suficientemente livres para sermos moralmente responsáveis.</p>
+        <p>Essa visão filosófica dialoga bem com a teologia cristã: há condicionantes, há tentações, mas também há liberdade para resistir ou ceder. A graça de Deus não anula nossa vontade, mas a restaura, capacitando-nos a escolher o bem.</p>
+        <p>Peter Tse - Neurocienteista cognitivo e autor de <i>The Neural Basis of Free Will</i>, argumenta que o cérebro é sim capaz de reconfigurar suas conexões em resposta a experiências, o que daria margem a uma forma de livre-agência, mesmo dentro de um sistema biológico. Tse defende portanto, um modelo de <strong>livre-arbítio compatível com a neurociência</strong>, sem cair em determinismo rígido.</p>
+        <p>Reduzir o ser humano a um conjunto de reações químicas e memórias condicionadas é ignorar aquilo que nos torna humanos de fato: a capacidade de decidir, amar, errar, perdoar, mudar de caminho. A Bíblia é clara ao mostrar que Deus nos trata como agentes morais livres, oferecendo Sua graça, mas esperando nossa resposta.</p>
+        <p>Negar o livre-arbítrio é esvaziar a justiça, a ética e o amor verdadeiro — pois estes só existem onde há liberdade. Sim, somos influenciados por muitos fatores. Mas não somos reféns deles. Ainda podemos escolher. Ainda podemos dizer “sim” ou “não”. E é essa liberdade que torna real tanto a justiça quanto a graça.</p>
+    </div>
+    `,
+    casa: `
+    <div class="artigo-conteudo">
+        <h2>O verdadeiro sentido de 'casa': Onde o coração encontra refúgio</h2>
+        <p class="text-secondary">Publicado em 20/04/2025 por Nathan Lima</p>
+        <img src="imagens/casa.jpg" alt="O sentido de 'casa'" class="artigo-imagem" />
+        <p>Uma reflexão sobre a canção My Home de Louis Island - <a href="https://youtu.be/QUpPk36PzzY" class="musica">Ouça aqui</a></p>
+        <p>A canção propõe uma desconstrução do que entendemos por “lar”. Mais do que um espaço físico, ela revela um anseio por um refúgio inabalável. Nesta reflexão, acompanharemos como a letra nos conduz a reconhecer Deus como nossa verdadeira morada e sustentação.</p>
+        <p>“<i>Esse lugar é muitas coisas, mas eu não posso chama-lo de minha casa.</i>” Nesse verso inaugural, percebe-se que nenhum edifício, por mais imponente ou acolhedor que pareça, supre a necessidade humana de segurança interior. As ruas, as luzes, os rostos: tudo pode impressionar os sentidos, mas não basta para abrigar a alma aflita.</p>
+        <p>Ao desvincular-se do apego a um endereço específico, abre-se um caminho para experienciar uma liberdade mais profunda. Mesmo sem referências fixas, descobre-se que não é o cenário ao redor que garante paz, mas a certeza de uma presença firme. Essa experiência sutil — de perceber que “<strong>tudo fica bem com a companhia certa</strong>” — prepara o coração para reconhecer a única companhia inabalável: <strong>Deus</strong>.</p>
+        <p>O refrão declara esse reconhecimento: “<i>Tú és meu abrigo quando toda a minha esperança se foi.</i>” Aqui, Deus não é apenas um ponto no espaço, mas um espaço em nós — uma fortaleza contra o desespero. Na bíblia, Ele é descrito como o lugar secreto (Salmo 91), à sombra do Onipotente, onde encontramos descanso e segurança. A dependência expressa no verso revela uma verdade essencial: <strong>sem esse refúgio, a esperança se esvai</strong>.</p>
+        <p>A letra não caminha para a autossuficiência, mas para o reconhecimento da nossa fragilidade: “<i>Devo ter dito algumas coisas que magoaram a Ti, Mas Tu continuas sendo o único que me levanta.</i>” Essa dinâmica de falha e restauração aponta para uma dependência contínua. Cada manhã, precisamos desse reencontro com o abrigo divino, da mesma forma que respiramos a cada instante. Kierkegaard declarou que, a fé é um movimento diário de entrega — não um ponto de chegada, mas um caminhar constante em direção ao abraço que nos sustenta.</p>
+        <p>Heidegger nos lembra que o ser humano é, por essência, um “<strong>ser-no-mundo</strong>”, sempre lançado em uma determinada situação. Não cabe, porém, à mera situação confirmar nossa existência: é na relação autêntica — aqui traduzida como comunhão com Deus — que encontramos sentido e lar.</p>
+        <p>A canção nos instiga a redescobrir o que realmente significa ter um lar. Ao perceber que “<i>Deus é meu lar, meu tudo, meu coração</i>”, somos desafiados a realocar nossa confiança: deixar de buscar segurança no transiente e finito, para abrigar-nos no <strong>eterno</strong>. Que este reconhecimento transforme nossa forma de viver, lembrando-nos diariamente que, onde quer que estejamos, a presença divina é o verdadeiro refúgio.</p>
+    </div>
+    `,
+    singularidade: `
+    <div class="artigo-conteudo">
+        <h2>A singularidade do indivíduo na perspectiva teológica: Uma resposta ao pessimismo metafísico</h2>
+        <p class="text-secondary">Publicado em 06/04/2025 por Nathan Lima</p>
+        <img src="imagens/singularidade.png" alt="A singularidade do individuo" class="artigo-imagem" />
+        <p>Em contraste com as abordagens pessimistas da existência - como a proposta por Schopenhauer, que vê o indivíduo como mera manifestação efêmera de uma vontade cega e impessoal - a teologia cristã oferece uma visão radicalmente distinta: a de que cada ser humano possui um valor intrínseco, fundado na relação pessoal com o Criador.</p>
+        <p>Desde os primórdios da revelação bíblica, o ser humano é descrito como criado <i>imago Dei</i> - à imagem e semelhança de Deus (Gêneses 1:27). Este conceito não se refere a traços físicos, mas à capacidade racional, volitiva e relacional do homem, que o distingue do restante da criação. Essa dignidade não é apenas funcional ou moral; é ontológica. O ser humano é, por sua própria constituição, portador de um selo divino.</p>
+        <p>Tomás de Aquino, ao refletir sobre a dignidade da alma humana, afirma que "a imagem de Deus está primariamente na mente" (<i>Suma Teológica, I, q. 93</i>). Para ele, a racionalidade, a liberdade e a capacidade de amar conferem ao indivíduo uma nobreza que excede toda a ordem natural. O homem não é um acidente cósmico, mas uma criatura intencionalmente criada e ordenada para o bem supremo: Deus mesmo.</p>
+        <p>Essa visão é ainda mais aprofundada pela ideia da <i>providência divina</i>. Deus não apenas cria, mas sustenta e governa todas as coisas com sabedoria e amor. Cada indivíduo, mesmo em meio ao sofrimento ou ao erro, é mantido nas mãos de um Deus que vê e se importa. As promessas de perdão, de reconciliação e de um destino final de comunhão eterna são expressões supremas de cuidado pessoal.</p>
+        <p>Na teologia cristã, o auge dessa atenção divina se revela na encarnação: Deus se faz homem em Jesus Cristo, não por necessidade, mas por amor. Ele assume a condição humana não de forma genérica, mas pessoal — vivendo, sofrendo e morrendo por indivíduos concretos. Isso não apenas confirma o valor de cada ser humano, mas o exalta.</p>
+        <p>Portanto, ao contrário do diagnóstico de que o indivíduo é metafisicamente irrelevante, a verdade bíblica afirma que <strong>cada pessoa é eternamente significativa</strong>. O ser humano não é um fragmento perdido em um universo impessoal, mas um ser amado, conhecido e chamado pelo nome (Isaías 43:1). Essa realidade não anula o sofrimento, mas o transfigura: mesmo a dor pode ser lugar de encontro com o mistério divino.</p>
+        <p>A afirmação de que "cada indivíduo é especial para Deus" não é mero consolo psicológico, mas uma proposição metafísica profundamente enraizada na filosofia cristã. Diante disso, a vida humana, mesmo na fragilidade, se reveste de uma dignidade que nenhuma adversidade ou abstração filosófica pode apagar.</p>
+        </div>
+    `,
+    design: `
+    <div class="artigo-conteudo">
+        <h2>Design inteligente: Uma reflexão racional e de fé</h2>
+        <p class="text-secondary">Publicado em 23/03/2025 por Nathan Lima</p>
+        <img src="imagens/desing.jpeg" alt="Design inteligente" class="artigo-imagem" />
+        <p>Sou programador, alguém que observa o mundo com olhar técnico, lógico, mas também sensível à dimensão espiritual da existência. E é a partir dessa visão equilibrada que compartilho uma convicção pessoal: acredito na existência de um Design Inteligente, resultado de uma mente — brilhante, para dizer o mínimo.</p>
+        <p>Essa crença não se baseia em tradição ou fé cega, mas em uma análise racional das numerosas variáveis que tornam nosso planeta habitável. A distância exata da Terra em relação ao Sol, a composição ideal da atmosfera, a presença de água em abundância, a estabilidade da gravidade, o campo magnético que nos protege da radiação solar... tudo isso sugere não uma obra do acaso, mas sim um sistema deliberadamente ajustado para a vida.</p>
+        <p>A ciência estima que nosso planeta tenha bilhões de anos, mas mesmo com tanto tempo, é absolutamente improvável que a vida tenha surgido espontaneamente, a partir de uma combinação aleatória de moléculas em uma "sopa primordial". Estamos falando de estruturas complexas como o DNA, com instruções precisas, replicação, reparo e resposta ao ambiente. Isso exige mais do que tempo: exige direção.</p>
+        <p>Na minha perspectiva, a chance de essas moléculas terem se organizado por acaso é tão improvável quanto jogar um dado com milhares de lados e ele cair exatamente na única face correta. É como um jogo onde só há uma chance, e um resultado extremamente específico. O tempo, por si só, não explica tamanha complexidade.</p>
+        <p>Entendo e respeito o papel da ciência em buscar o <strong>como</strong> da origem da vida — e acredito que ela tem feito grandes avanços nesse sentido. No entanto, também acredito que essa mesma ciência, ao revelar as engrenagens detalhadas da vida e do universo, nos convida a pensar no <strong>por quê</strong>. E é aí que entra o que chamamos de Design Inteligente — uma assinatura de propósito, uma marca de intenção por trás de tudo.</p>
+        <p>Para mim, fé e razão não são opostos, mas aliados. A lógica que aplico na programação, nos sistemas e na estrutura dos algoritmos, encontro também — em escala infinitamente maior — na estrutura do universo e da vida. Essa ordem, essa beleza, esse equilíbrio... tudo aponta para um Criador. Uma mente que projetou, sustentou e organizou tudo o que existe.</p>
+        </div>
+    `,
+    sustentabilidade: `
+    <div class="artigo-conteudo">
+      <h2>A dor, o sacrifício e a fé: Uma reflexão sobre Will Traynor</h2>
+      <p class="text-secondary">Publicado em 08/03/2025 por Nathan Lima</p>
+      <img src="imagens/will.jpeg" alt="Uma reflexão sobre Will Traynor" class="artigo-imagem" />
+        <p>Ao ler Como Eu Era Antes de Você, é impossível não se sentir tocado pela complexidade de Will Traynor — um personagem marcado profundamente pela dor física, pela perda da autonomia e pelas cicatrizes emocionais que o acidente lhe impôs. No entanto, embora eu compreenda a magnitude do sofrimento de Will, acredito que sua decisão de não continuar vivendo levanta questões importantes sobre como lidamos com a dor, o sacrifício e o sentido da vida.</p>
+        <p>Will era um homem livre, intenso e apaixonado pelas experiências que a vida podia oferecer. Ele amava viajar, se aventurar e viver no limite. Depois do acidente, sua vida deu uma guinada radical, e é compreensível que, diante da nova realidade, ele tenha sentido que perdeu tudo o que fazia dele “ele mesmo”. Mas será que a vida se resume apenas ao que podemos fazer com o corpo? Será que, ao perdermos parte da nossa autonomia, deixamos também de ter valor?</p>
+        <p>Acredito que a vida é feita de limites. Vivemos em um corpo frágil, em um mundo instável e cercado por desafios. <strong>A dor — seja ela física ou emocional — nos acompanha em muitos momentos, e viver é, sim, um ato de sacrifício constante</strong>. Um pai ou uma mãe que se levanta no meio da madrugada para cuidar do filho doente não coloca o cansaço acima do amor. Assim como alguém que enfrenta uma doença difícil luta diariamente por motivos maiores do que a própria dor. Isso não invalida o sofrimento de Will, mas me faz pensar:<strong> e se ele tivesse descoberto que ainda podia amar, ser amado e contribuir, mesmo em sua condição?</strong></p>
+        <p>Acredito que sim, ele tinha uma personalidade forte, pulso firme e ideias muito claras — talvez até inflexíveis. A decisão dele foi pensada, não foi impulsiva. E, por isso mesmo, talvez uma mudança verdadeira exigisse algo mais profundo. Algo que não estivesse ligado à razão, mas ao espírito.</p>
+        <p>Falo aqui da <strong>fé</strong> — e não necessariamente da religiosidade formal, mas de uma espiritualidade que nos ajuda a enxergar sentido mesmo na dor. Não fica claro no livro se Will teve algum contato com a fé, mas penso que, se tivesse, <strong>ele poderia ter começado a reconstruir sua identidade por outro caminho</strong>. A fé me ensinou que somos mais do que aquilo que o corpo pode fazer. Que a vida não termina na limitação, mas encontra novos significados nela. E que há esperança — inclusive além dessa vida.</p>
+        <p><strong>Apocalipse 21:4 diz que Deus enxugará dos olhos toda lágrima, e um dia não haverá mais dor</strong>. Essa promessa me move. Pensar que tudo o que vivemos aqui é apenas uma parte de algo maior me ajuda a valorizar a vida em todas as suas formas, mesmo que imperfeita, mesmo que limitada. E penso que, se Will tivesse essa esperança, talvez ele tivesse conseguido ressignificar sua dor.</p>
+        <p>Talvez ele nunca fosse o mesmo de antes — mas será que alguém precisa continuar sendo o mesmo para viver com dignidade e propósito?</p>
+    
+    </div>`,
+    lagrimas: `
+    <div class="artigo-conteudo">
+      <h2>O que vem depois das lágrimas</h2>
+      <p class="text-secondary">Publicado em 21/02/2025 por Nathan Lima</p>
+      <img src="imagens/lagrimas.jpeg" alt="O que vem depois das lágrimas" class="artigo-imagem" />
+        <p>Não faz muito tempo, me deparei com esta obra no museu. Com um traço leve e simples, o autor nos inspira a mergulhar em uma das verdades mais profundas da existência: <strong>as lágrimas não são o fim — elas são o começo de algo novo.</strong></p>
+        <p>Na obra de Ryan Rabelo, intitulada "O que vem depois das lágrimas", uma nuvem paira sobre a terra, onde pequenas plantas brotaram. Algumas aparentam estar doentes, enquanto uma cresce firme e forte — sinal de que foi tocada pela água que cai do céu, que, na obra, é comparada às lágrimas humanas.</p>
+        <p>Os textos simples e escritos à mão nos convidam à contemplação:</p>
+        <p>"<strong>Essa água é como lágrimas nos olhos dos homens.</strong>" "<strong>Os homens esquecem as armas quando aprendem a chorar.</strong>"</p>
+        <p>Há, nessas pequenas frases, uma chave de transformação. A lágrima, símbolo de fragilidade, torna-se aqui um instrumento de paz. O homem que chora é aquele que reconhece sua própria humanidade e, ao fazer isso, desarma-se. A dor sentida com verdade é capaz de derrubar muros e desatar nós.</p>
+        <p>Essa reflexão me leva a pensar também sobre as palavras de Jesus, em João 12:24: "<strong>Em verdade, em verdade vos digo: se o grão de trigo, caindo na terra, não morrer, fica ele só; mas, se morrer, produz muito fruto.</strong>"</p>
+        <p>O choro pode ocorrer pela entrega do grão, ou até mesmo pelo fato de permitirmos que algo em nós morra — o orgulho, o ego, a dureza — para que algo maior nasça. A lágrima, portanto, é um regador de sementes. É o prenúncio da vida que renasce no interior de cada um.</p>
+        <p>Quando deixamos cair nossas lágrimas, não estamos apenas desabando. Estamos semeando. E Deus, em sua graça, transforma essa água em fonte de crescimento.</p>
+        <p><strong>O que vem depois das lágrimas? Vem o broto. Vem a paz. Vem a vida</strong>.</p>
+
+      </div>
+    `,
+    ciclos: `
+    <div class="artigo-conteudo">
+      <h2>Um ensaio sobre os ciclos da vida: Entre fins e recomeços</h2>
+      <p class="text-secondary">Publicado em 09/02/2025 por Nathan Lima</p>
+      <img src="imagens/ciclos.png" alt="Os ciclos da vida" class="artigo-imagem" />
+        <p>Texto adaptado para o blog.</p>
+        <p>A vida é feita de ciclos. De tempos que começam e tempos que terminam. E embora pareça contraditório, cada fim carrega em si a semente de um novo começo. Essa é uma das lições mais valiosas que podemos aprender ao longo da nossa jornada.</p>
+        <p>Há momentos em que nos vemos diante do encerramento de uma etapa. Olhamos para trás e sentimos um misto de emoções — gratidão pelas conquistas, saudade do que foi vivido, mas também uma inquietação diante do desconhecido que nos espera. É um sentimento difícil de explicar, como se estivéssemos entre dois mundos: o que já conhecemos e o que ainda vamos descobrir.</p>
+        <p>Na natureza, muitos animais encerram seus ciclos trocando de pele. O processo, por mais doloroso e desconfortável que pareça, é essencial para que cresçam e se tornem mais fortes. Assim também acontece conosco. A cada transição — seja ela marcada por uma mudança de emprego, uma nova fase acadêmica, um relacionamento que termina ou qualquer outra transformação — somos desafiados a deixar algo para trás para que algo novo possa florescer.</p>
+        <p>Esses ciclos não são apenas inevitáveis, eles são necessários. O crescimento, quase sempre, exige desconforto. É nos períodos de mudança que nos redescobrimos, que reconhecemos forças que antes não sabíamos ter. É na despedida que aprendemos a valorizar o caminho trilhado e é no recomeço que cultivamos a esperança por dias melhores.</p>
+        <p>Vivemos tempos de florescer e tempos de recolhimento. Alguns dias são de conquista, outros de silêncio. Mas todos, absolutamente todos, fazem parte do ciclo que nos molda. Não existe crescimento sem transformação, e não existe transformação sem movimento.</p>
+        <p>Por isso, encare os fins com gratidão e os começos com coragem. Permita-se mudar, assim como a natureza muda com as estações. Deixe que cada encerramento seja uma preparação para algo ainda mais belo. O ciclo termina — e ao mesmo tempo, começa.</p>
+
+      </div>
+    `
+    };
+
+    document.getElementById('conteudo-artigo').innerHTML = artigos[artigoId] || "<p>Artigo não encontrado.</p>";
+    }
+
+  </script>
+
+</body>
+</html>
